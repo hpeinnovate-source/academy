@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Academy Projects</title>
+    <style>
+      :root {
+        --bg: #0b0f1a;
+        --text: #eaf0ff;
+        --muted: #a6b3d0;
+        --card: #11172a;
+        --border: #1f2944;
+        --accent1: #6c5ce7; /* group1 */
+        --accent2: #00c2a8; /* group2 */
+        --accent3: #ff6b6b; /* group3 */
+      }
+
+      * { box-sizing: border-box; }
+      html, body { height: 100%; }
+      body {
+        margin: 0;
+        font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        color: var(--text);
+        background:
+          radial-gradient(1200px 800px at 20% -10%, #1a2341 0%, var(--bg) 60%),
+          radial-gradient(800px 500px at 100% 0%, rgba(108,92,231,0.15) 0%, rgba(0,0,0,0) 60%),
+          linear-gradient(180deg, rgba(0,0,0,0.15), rgba(0,0,0,0));
+      }
+
+      .container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 32px 20px 80px;
+      }
+
+      header { text-align: center; }
+      .title { font-size: 44px; margin: 8px 0 8px; letter-spacing: 0.5px; }
+      .subtitle { margin: 0 0 28px; color: var(--muted); }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 20px;
+        margin-top: 20px;
+      }
+
+      .card {
+        position: relative;
+        display: block;
+        padding: 22px;
+        border-radius: 16px;
+        text-decoration: none;
+        color: var(--text);
+        background: var(--card);
+        border: 1px solid var(--border);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+        transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+      }
+      .card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 18px 40px rgba(0,0,0,0.35);
+        border-color: #2b3860;
+      }
+
+      .card .tag {
+        display: inline-block;
+        font-size: 12px;
+        font-weight: 700;
+        padding: 6px 10px;
+        border-radius: 999px;
+        background: rgba(255,255,255,0.06);
+        border: 1px solid rgba(255,255,255,0.1);
+        margin-bottom: 10px;
+      }
+      .card h3 { margin: 6px 0 6px; font-size: 22px; }
+      .card p { margin: 0; color: var(--muted); }
+
+      .accent1 { outline: 3px solid transparent; }
+      .accent1:hover { outline-color: var(--accent1); }
+      .accent2:hover { outline-color: var(--accent2); }
+      .accent3:hover { outline-color: var(--accent3); }
+
+      footer { text-align: center; margin-top: 36px; color: var(--muted); font-size: 14px; }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <div style="font-size:14px;color:#8ea0c6;letter-spacing:.2em;text-transform:uppercase;">Academy</div>
+        <h1 class="title">Choose Your Squad</h1>
+        <p class="subtitle">Pick a group to enter your project space. Make it awesome!</p>
+      </header>
+
+      <section class="grid">
+        <a class="card accent1" href="/group1/">
+          <span class="tag" style="border-color: rgba(108,92,231,.35); background: rgba(108,92,231,.12);">Group 1</span>
+          <h3>Galactic Coders 🚀</h3>
+          <p>Launch new ideas and explore cool tech.</p>
+        </a>
+
+        <a class="card accent2" href="/group2/">
+          <span class="tag" style="border-color: rgba(0,194,168,.35); background: rgba(0,194,168,.10);">Group 2</span>
+          <h3>Wave Makers 🌊</h3>
+          <p>Build smooth, clean, and responsive apps.</p>
+        </a>
+
+        <a class="card accent3" href="/group3/">
+          <span class="tag" style="border-color: rgba(255,107,107,.35); background: rgba(255,107,107,.10);">Group 3</span>
+          <h3>Fire Starters 🔥</h3>
+          <p>Ignite creativity and ship bold features.</p>
+        </a>
+      </section>
+
+      <footer>
+        Pro-tip: Press Ctrl/Cmd+D to bookmark your group page!
+      </footer>
+    </div>
+  </body>
+  </html>
+
+
