@@ -1,28 +1,25 @@
+
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Group 7</title>
-    <link rel="stylesheet" href="/academy/static/css/group7.css" />
-  </head>
-  <body>
-    <div class="container">
-      <h1 class="title">Group 7</h1>
-      <p class="subtitle">Collaborate closely and communicate clearly.</p>
-
-      <div class="card">
-        <h2>Start Here 🚀</h2>
-        <p>Break problems down and iterate towards a great result.</p>
-        <a class="btn" href="https://developer.mozilla.org/en-US/docs/Web/Performance">Web Performance</a>
-      </div>
-
-      <a class="back" href="/academy/index.html">← Back to Home</a>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Weather & Activity Advisor</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+</head>
+<body>
+  <div id="map"></div>
+  <div class="overlay">
+    <h1>Weather & Activity Advisor</h1>
+    <div id="location-input">
+      <input type="text" id="manual-location" placeholder="Type a city..." oninput="suggestLocations(this.value)" />
+      <ul id="suggestions-list"></ul>
     </div>
-
-    <script src="/academy/static/js/group7.js"></script>
-  </body>
-  </html>
-
-
-
+    <div id="weather-info"></div>
+    <div id="suggestions"></div>
+  </div>
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
