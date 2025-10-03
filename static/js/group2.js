@@ -1,5 +1,7 @@
+let lastWeatherData = null; // store last fetched data
+
 async function getWeather() {
-  const city = document.getElementById("cityInput").value;
+  const city = document.getElementById("cityInput").value.trim();
   const resultDiv = document.getElementById("weatherResult");
 
   if (!city) {
@@ -7,34 +9,15 @@ async function getWeather() {
     return;
   }
 
-  const apiKey = "YOUR_API_KEY"; // Replace with your OpenWeatherMap API key
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  const url = `https://wttr.in/${city}?format=j1`;
 
   try {
     const response = await fetch(url);
     if (!response.ok) throw new Error("City not found");
     const data = await response.json();
 
-    const { main, weather, wind, sys, name } = data;
-    const description = weather[0].description;
-    const temp = main.temp;
-    const feelsLike = main.feels_like;
-    const humidity = main.humidity;
-    const windSpeed = wind.speed;
-    const country = sys.country;
-
-    resultDiv.innerHTML = `
-      <h2>${name}, ${country}</h2>
-      <p><strong>${description.toUpperCase()}</strong></p>
-      <p>🌡️ Temperature: ${temp}°C (Feels like ${feelsLike}°C)</p>
-      <p>💧 Humidity: ${humidity}%</p>
-      <p>🌬️ Wind Speed: ${windSpeed} m/s</p>
-    `;
-
-    resultDiv.classList.remove("hidden");
-
-    // Change background gradient based on weather
-    changeBackground(weather[0].main.toLowerCase());
+    lastWeatherData = data; // save for unit switching
+    renderWeather();
 
   } catch (error) {
     resultDiv.innerHTML = `<p style="color:white;">${error.message}</p>`;
@@ -42,32 +25,81 @@ async function getWeather() {
   }
 }
 
+function renderWeather() {
+  if (!lastWeatherData) return;
+
+  const unit = document.getElementById("unitSelect").value;
+  const resultDiv = document.getElementById("weatherResult");
+
+  const current = lastWeatherData.current_condition[0];
+  const area = lastWeatherData.nearest_area[0].areaName[0].value;
+  const country = lastWeatherData.nearest_area[0].country[0].value;
+
+  const description = current.weatherDesc[0].value;
+  let tempC = parseFloat(current.temp_C);
+  let feelsC = parseFloat(current.FeelsLikeC);
+  let windKmph = parseFloat(current.windspeedKmph);
+  const humidity = current.humidity;
+
+  // Convert if imperial selected
+  let temp, feelsLike, windSpeed, tempUnit, windUnit;
+  if (unit === "imperial") {
+    temp = cToF(tempC);
+    feelsLike = cToF(feelsC);
+    windSpeed = kmhToMph(windKmph);
+    tempUnit = "°F";
+    windUnit = "mph";
+  } else {
+    temp = tempC;
+    feelsLike = feelsC;
+    windSpeed = windKmph;
+    tempUnit = "°C";
+    windUnit = "km/h";
+  }
+
+  resultDiv.innerHTML = `
+    <h2>${area}, ${country}</h2>
+    <p><strong>${description.toUpperCase()}</strong></p>
+    <p>🌡️ Temperature: ${temp}${tempUnit} (Feels like ${feelsLike}${tempUnit})</p>
+    <p>💧 Humidity: ${humidity}%</p>
+    <p>🌬️ Wind Speed: ${windSpeed} ${windUnit}</p>
+  `;
+
+  resultDiv.classList.remove("hidden");
+
+  // Change background gradient based on weather description
+  changeBackground(description.toLowerCase());
+}
+
+function cToF(c) {
+  return Math.round((c * 9/5) + 32);
+}
+
+function kmhToMph(kmh) {
+  return Math.round(kmh / 1.609);
+}
+
 function changeBackground(condition) {
   let gradient;
 
-  switch (condition) {
-    case "clear":
-      gradient = "linear-gradient(135deg, #f6d365, #fda085)";
-      break;
-    case "clouds":
-      gradient = "linear-gradient(135deg, #bdc3c7, #2c3e50)";
-      break;
-    case "rain":
-      gradient = "linear-gradient(135deg, #00c6fb, #005bea)";
-      break;
-    case "thunderstorm":
-      gradient = "linear-gradient(135deg, #141e30, #243b55)";
-      break;
-    case "snow":
-      gradient = "linear-gradient(135deg, #e6dada, #274046)";
-      break;
-    case "mist":
-    case "fog":
-      gradient = "linear-gradient(135deg, #606c88, #3f4c6b)";
-      break;
-    default:
-      gradient = "linear-gradient(135deg, #89f7fe, #66a6ff)";
+  if (condition.includes("sun") || condition.includes("clear")) {
+    gradient = "linear-gradient(135deg, #f6d365, #fda085)";
+  } else if (condition.includes("cloud")) {
+    gradient = "linear-gradient(135deg, #bdc3c7, #2c3e50)";
+  } else if (condition.includes("rain")) {
+    gradient = "linear-gradient(135deg, #00c6fb, #005bea)";
+  } else if (condition.includes("thunder")) {
+    gradient = "linear-gradient(135deg, #141e30, #243b55)";
+  } else if (condition.includes("snow")) {
+    gradient = "linear-gradient(135deg, #e6dada, #274046)";
+  } else if (condition.includes("fog") || condition.includes("mist")) {
+    gradient = "linear-gradient(135deg, #606c88, #3f4c6b)";
+  } else {
+    gradient = "linear-gradient(135deg, #89f7fe, #66a6ff)";
   }
 
   document.body.style.background = gradient;
 }
+
+// Auto-update when unit dropdown changes
+document.getElementById("unitSelect").addEventListener("change", renderWeather);
