@@ -14,6 +14,13 @@
         --accent1: #6c5ce7; /* group1 */
         --accent2: #00c2a8; /* group2 */
         --accent3: #ff6b6b; /* group3 */
+        --accent4: #f59e0b; /* group4 */
+        --accent5: #22c55e; /* group5 */
+        --accent6: #3b82f6; /* group6 */
+        --accent7: #ef4444; /* group7 */
+        --accent8: #a855f7; /* group8 */
+        --accent9: #06b6d4; /* group9 */
+        --accent10: #f97316; /* group10 */
       }
 
       * { box-sizing: border-box; }
@@ -37,6 +44,7 @@
       header { text-align: center; }
       .title { font-size: 44px; margin: 8px 0 8px; letter-spacing: 0.5px; }
       .subtitle { margin: 0 0 28px; color: var(--muted); }
+      .section-title { margin: 28px 0 8px; font-size: 18px; color: var(--muted); letter-spacing: .08em; text-transform: uppercase; }
 
       .grid {
         display: grid;
@@ -76,10 +84,17 @@
       .card h3 { margin: 6px 0 6px; font-size: 22px; }
       .card p { margin: 0; color: var(--muted); }
 
-       .accent1 { outline: 3px solid transparent; }
+       .accent1, .accent2, .accent3, .accent4, .accent5, .accent6, .accent7, .accent8, .accent9, .accent10, .accent-demo { outline: 3px solid transparent; }
        .accent1:hover { outline-color: var(--accent1); }
        .accent2:hover { outline-color: var(--accent2); }
        .accent3:hover { outline-color: var(--accent3); }
+       .accent4:hover { outline-color: var(--accent4); }
+       .accent5:hover { outline-color: var(--accent5); }
+       .accent6:hover { outline-color: var(--accent6); }
+       .accent7:hover { outline-color: var(--accent7); }
+       .accent8:hover { outline-color: var(--accent8); }
+       .accent9:hover { outline-color: var(--accent9); }
+       .accent10:hover { outline-color: var(--accent10); }
        .accent-demo:hover { outline-color: #ffd166; }
 
       footer { text-align: center; margin-top: 36px; color: var(--muted); font-size: 14px; }
@@ -93,6 +108,15 @@
         <p class="subtitle">Pick a group to enter your project space. Make it awesome!</p>
       </header>
 
+      <section class="grid">
+        <a class="card accent-demo" href="/academy/demo/">
+          <span class="tag" style="border-color: rgba(255,209,102,.35); background: rgba(255,209,102,.12);">Demo</span>
+          <h3>Weather Checker ⛅</h3>
+          <p>Try a live demo: fetch the weather by city.</p>
+        </a>
+      </section>
+
+      <div class="section-title">Session 1</div>
       <section class="grid">
         <a class="card accent1" href="/academy/group1/">
           <span class="tag" style="border-color: rgba(108,92,231,.35); background: rgba(108,92,231,.12);">Group 1</span>
@@ -112,10 +136,49 @@
           <p>Ignite creativity and ship bold features.</p>
         </a>
 
-        <a class="card accent-demo" href="/academy/demo/">
-          <span class="tag" style="border-color: rgba(255,209,102,.35); background: rgba(255,209,102,.12);">Demo</span>
-          <h3>Weather Checker ⛅</h3>
-          <p>Try a live demo: fetch the weather by city.</p>
+        <a class="card accent4" href="/academy/group4/">
+          <span class="tag" style="border-color: rgba(245,158,11,.35); background: rgba(245,158,11,.12);">Group 4</span>
+          <h3>Momentum Makers ⚡</h3>
+          <p>Ship features with focus and flow.</p>
+        </a>
+
+        <a class="card accent5" href="/academy/group5/">
+          <span class="tag" style="border-color: rgba(34,197,94,.35); background: rgba(34,197,94,.12);">Group 5</span>
+          <h3>Green Light Crew ✅</h3>
+          <p>Polish UX and optimize performance.</p>
+        </a>
+      </section>
+
+      <div class="section-title">Session 2</div>
+      <section class="grid">
+        <a class="card accent6" href="/academy/group6/">
+          <span class="tag" style="border-color: rgba(59,130,246,.35); background: rgba(59,130,246,.12);">Group 6</span>
+          <h3>Blue Sky Builders ☁️</h3>
+          <p>Readable, testable, scalable code.</p>
+        </a>
+
+        <a class="card accent7" href="/academy/group7/">
+          <span class="tag" style="border-color: rgba(239,68,68,.35); background: rgba(239,68,68,.12);">Group 7</span>
+          <h3>Team Sync 🤝</h3>
+          <p>Collaborate and communicate clearly.</p>
+        </a>
+
+        <a class="card accent8" href="/academy/group8/">
+          <span class="tag" style="border-color: rgba(168,85,247,.35); background: rgba(168,85,247,.12);">Group 8</span>
+          <h3>Design Drivers 🎨</h3>
+          <p>Design boldly, implement carefully.</p>
+        </a>
+
+        <a class="card accent9" href="/academy/group9/">
+          <span class="tag" style="border-color: rgba(6,182,212,.35); background: rgba(6,182,212,.12);">Group 9</span>
+          <h3>Clarity Crew 🧭</h3>
+          <p>Focus on quality and value.</p>
+        </a>
+
+        <a class="card accent10" href="/academy/group10/">
+          <span class="tag" style="border-color: rgba(249,115,22,.35); background: rgba(249,115,22,.12);">Group 10</span>
+          <h3>Refactor Rangers 🛠️</h3>
+          <p>Refactor smart and measure improvements.</p>
         </a>
       </section>
 
