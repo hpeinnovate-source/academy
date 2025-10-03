@@ -1,27 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Group 2</title>
-    <link rel="stylesheet" href="/academy/static/css/group2.css" />
-  </head>
-  <body>
-    <div class="container">
-      <h1 class="title">Group 2</h1>
-      <p class="subtitle">Build something epic. Make it clean, fast, and fun.</p>
-
-      <div class="card">
-        <h2>Resources 🌱</h2>
-        <p>Use this space to share docs, ideas, and progress updates.</p>
-        <a class="btn" href="https://web.dev/learn/">Explore Web.dev</a>
-      </div>
-
-      <a class="back" href="/academy/index.html">← Back to Home</a>
-    </div>
-
-    <script src="/academy/static/js/group2.js"></script>
-  </body>
-  </html>
-
-
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Weather Finder</h1>
+    <input type="text" id="cityInput" placeholder="Enter city name...">
+    <select id="unitSelect">
+      <option value="metric" selected>Metric (°C, km/h)</option>
+      <option value="imperial">Imperial (°F, mph)</option>
+    </select>
+    <button onclick="getWeather()">Get Weather</button>
+    <div id="weatherResult" class="weather-card hidden"></div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
