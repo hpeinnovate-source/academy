@@ -2,27 +2,21 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Group 6</title>
-    <link rel="stylesheet" href="/academy/static/css/group6.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
-  <body>
-    <div class="container">
-      <h1 class="title">Group 6</h1>
-      <p class="subtitle">Keep code readable, testable, and scalable.</p>
+<body>
+  <div class="weather-container">
+    <h1>Weather Forecast</h1>
+    <input type="text" id="locationInput" placeholder="Enter location..." />
+    <button onclick="getWeather()">Get Weather</button>
+    <div id="weatherResult"></div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
 
-      <div class="card">
-        <h2>Welcome 👋</h2>
-        <p>Start with a plan, then build and refine.</p>
-        <a class="btn" href="https://developer.mozilla.org/en-US/docs/Learn">Learn Web Basics</a>
-      </div>
-
-      <a class="back" href="/academy/index.html">← Back to Home</a>
-    </div>
-
-    <script src="/academy/static/js/group6.js"></script>
-  </body>
-  </html>
 
 
 
