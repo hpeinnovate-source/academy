@@ -8,8 +8,14 @@
 
     Use GitHub Pages to publish site:
     https://hpeinnovate-source.github.io/academy
-
     
+Common Setups:
+  [GitHub/GitLab Cloud]  <----->  [GitHub/GitLab Cloud] 
+    (Upstream Repo)                       (Fork Repo)
+
+  [GitHub/GitLab Cloud]      <----->     [Your Local Computer]
+  (Upstream or Fork Repo)                    (git clone)
+
 
 2. Understand the wrrt.in backend
     https://github.com/chubin/wttr.in
@@ -60,5 +66,54 @@ Glitch (until mid-2025) → Was often used for Flask demos, but they’re shutti
 For React & Node.js → Start with CodeSandbox or StackBlitz (fastest, least setup).
 
 For Flask/Python → Use Replit (simple, collaborative, and keeps things running).
+
+# 📘 Git Glossary (Quick Guide)
+
+A short and concise reference for common Git terms.
+
+---
+
+### Repository (Repo)
+A project folder tracked by Git. Stores all history and versions.  
+
+### Commit
+A snapshot of changes with a descriptive message.  
+
+### Stage / Index
+Temporary area where changes are prepared before committing (`git add`).  
+
+### Branch
+A separate line of development, like a parallel timeline.  
+
+### Merge
+Combine changes from one branch into another.  
+
+### Clone
+Make a local copy of a remote repository.  
+
+### Remote
+A version of the repo hosted online (e.g., GitHub, GitLab).  
+
+### Push
+Upload local commits to a remote repo.  
+
+### Pull
+Fetch and merge changes from a remote repo.  
+
+### Fetch
+Download changes from remote without merging.  
+
+### Checkout
+Switch to another branch or commit.  
+
+### HEAD
+Pointer to the current branch or commit you’re working on.  
+
+### Stash
+Temporarily save uncommitted changes without committing them.  
+
+---
+
+✅ Use this glossary as a quick reference when learning Git basics.
 
 Git Cheat Sheet: https://education.github.com/git-cheat-sheet-education.pdf
