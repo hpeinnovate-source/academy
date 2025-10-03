@@ -6,12 +6,6 @@ async function getWeather() {
     resultDiv.innerHTML = "<p>Please enter a location.</p>";
     return;
   }
-  
-  function resetWeather() {
-  document.getElementById("locationInput").value = "";
-  document.getElementById("weatherResult").innerHTML = "";
-}
-
 
   try {
     const response = await fetch(`https://wttr.in/${location}?format=j1`);
@@ -64,4 +58,3 @@ function drawWeatherChart(weatherData) {
     }
   });
 }
-
